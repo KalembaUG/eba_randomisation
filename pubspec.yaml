@@ -1,0 +1,20 @@
+name: eba_randomisation
+description: >
+  Pure-Dart block-randomisation engine for EBA youth recruitment.
+  Supports injectable parish configs, injectable RandomisationStore
+  (in-memory for unit tests; sqflite_common for SQLite — same SQL as
+  the mobile app on desktop/CI via sqflite_common_ffi).
+version: 0.1.0
+
+publish_to: none
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  sqflite_common: ^2.5.4
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.25.0
+  sqflite_common_ffi: ^2.3.4
