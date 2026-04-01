@@ -23,16 +23,16 @@ void main() {
   });
 
   group('ParishConfigTargets', () {
-    test('phase1TreatmentTarget = floor(limit × 2/3)', () {
-      expect(ParishConfigTargets.phase1TreatmentTarget(90), 60);
-      expect(ParishConfigTargets.phase1TreatmentTarget(110), 73);
-      expect(ParishConfigTargets.phase1TreatmentTarget(18), 12);
+    test('phase1TreatmentTarget = floor(limit × 0.8451)', () {
+      expect(ParishConfigTargets.phase1TreatmentTarget(90), 76);
+      expect(ParishConfigTargets.phase1TreatmentTarget(110), 92);
+      expect(ParishConfigTargets.phase1TreatmentTarget(18), 15);
     });
 
-    test('phase1ControlTarget = floor(limit / 3)', () {
-      expect(ParishConfigTargets.phase1ControlTarget(90), 30);
-      expect(ParishConfigTargets.phase1ControlTarget(110), 36);
-      expect(ParishConfigTargets.phase1ControlTarget(18), 6);
+    test('phase1ControlTarget = floor(limit × 0.1549)', () {
+      expect(ParishConfigTargets.phase1ControlTarget(90), 13);
+      expect(ParishConfigTargets.phase1ControlTarget(110), 17);
+      expect(ParishConfigTargets.phase1ControlTarget(18), 2);
     });
 
     test('phase2WaitingTarget = floor(limit / 3)', () {

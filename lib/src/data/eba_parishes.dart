@@ -54,52 +54,212 @@ abstract final class EbaParishes {
     ),
 
     // ── BUGIRI > BUSEMBATIA TC ────────────────────────────────────
-    ParishConfig(parish: 'BUSEMBATIA MARKET WARD', subcounty: 'BUSEMBATIA TC', district: 'BUGIRI', limit: 179),
-    ParishConfig(parish: 'KAKOGE WARD', subcounty: 'BUSEMBATIA TC', district: 'BUGIRI', limit: 179),
-    ParishConfig(parish: 'MAJENGO WARD', subcounty: 'BUSEMBATIA TC', district: 'BUGIRI', limit: 186),
+    ParishConfig(
+      parish: 'BUSEMBATIA MARKET WARD',
+      subcounty: 'BUSEMBATIA TC',
+      district: 'BUGIRI',
+      limit: 179,
+    ),
+    ParishConfig(
+      parish: 'KAKOGE WARD',
+      subcounty: 'BUSEMBATIA TC',
+      district: 'BUGIRI',
+      limit: 179,
+    ),
+    ParishConfig(
+      parish: 'MAJENGO WARD',
+      subcounty: 'BUSEMBATIA TC',
+      district: 'BUGIRI',
+      limit: 186,
+    ),
 
     // ── BUGIRI > BULIDHA ──────────────────────────────────────────
-    ParishConfig(parish: 'BULUNGULI', subcounty: 'BULIDHA', district: 'BUGIRI', limit: 177),
-    ParishConfig(parish: 'BUMOOZI', subcounty: 'BULIDHA', district: 'BUGIRI', limit: 205),
-    ParishConfig(parish: 'BUWOOYA', subcounty: 'BULIDHA', district: 'BUGIRI', limit: 208),
-    ParishConfig(parish: 'BWIGULA', subcounty: 'BULIDHA', district: 'BUGIRI', limit: 181),
-    ParishConfig(parish: 'KALALU', subcounty: 'BULIDHA', district: 'BUGIRI', limit: 104),
-    ParishConfig(parish: 'LUBIRA', subcounty: 'BULIDHA', district: 'BUGIRI', limit: 97),
+    ParishConfig(
+      parish: 'BULUNGULI',
+      subcounty: 'BULIDHA',
+      district: 'BUGIRI',
+      limit: 177,
+    ),
+    ParishConfig(
+      parish: 'BUMOOZI',
+      subcounty: 'BULIDHA',
+      district: 'BUGIRI',
+      limit: 205,
+    ),
+    ParishConfig(
+      parish: 'BUWOOYA',
+      subcounty: 'BULIDHA',
+      district: 'BUGIRI',
+      limit: 208,
+    ),
+    ParishConfig(
+      parish: 'BWIGULA',
+      subcounty: 'BULIDHA',
+      district: 'BUGIRI',
+      limit: 181,
+    ),
+    ParishConfig(
+      parish: 'KALALU',
+      subcounty: 'BULIDHA',
+      district: 'BUGIRI',
+      limit: 104,
+    ),
+    ParishConfig(
+      parish: 'LUBIRA',
+      subcounty: 'BULIDHA',
+      district: 'BUGIRI',
+      limit: 97,
+    ),
 
     // ── BUGIRI > NABUKALU (non-auto) ──────────────────────────────
-    ParishConfig(parish: 'IDINDA', subcounty: 'NABUKALU', district: 'BUGIRI', limit: 191),
-    ParishConfig(parish: 'MINANI', subcounty: 'NABUKALU', district: 'BUGIRI', limit: 184),
-    ParishConfig(parish: 'NAMALEMBA', subcounty: 'NABUKALU', district: 'BUGIRI', limit: 202),
-    ParishConfig(parish: 'NAMUNYUMYA', subcounty: 'NABUKALU', district: 'BUGIRI', limit: 177),
+    ParishConfig(
+      parish: 'IDINDA',
+      subcounty: 'NABUKALU',
+      district: 'BUGIRI',
+      limit: 191,
+    ),
+    ParishConfig(
+      parish: 'MINANI',
+      subcounty: 'NABUKALU',
+      district: 'BUGIRI',
+      limit: 184,
+    ),
+    ParishConfig(
+      parish: 'NAMALEMBA',
+      subcounty: 'NABUKALU',
+      district: 'BUGIRI',
+      limit: 202,
+    ),
+    ParishConfig(
+      parish: 'NAMUNYUMYA',
+      subcounty: 'NABUKALU',
+      district: 'BUGIRI',
+      limit: 177,
+    ),
 
     // ── BUGIRI > NANKOMA (non-auto) ───────────────────────────────
-    ParishConfig(parish: 'BUBUGO', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 106),
-    ParishConfig(parish: 'BUPALA', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 198),
-    ParishConfig(parish: 'BUSOGA', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 90),
-    ParishConfig(parish: 'BUWUNGA', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 106),
+    ParishConfig(
+      parish: 'BUBUGO',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 106,
+    ),
+    ParishConfig(
+      parish: 'BUPALA',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 198,
+    ),
+    ParishConfig(
+      parish: 'BUSOGA',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 90,
+    ),
+    ParishConfig(
+      parish: 'BUWUNGA',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 106,
+    ),
 
     // ISEGERO also exists in NANKOMA (different from NABUKALU ISEGERO).
     // Use parish + subcounty together to disambiguate.
-    ParishConfig(parish: 'ISEGERO', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 196),
+    ParishConfig(
+      parish: 'ISEGERO',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 196,
+    ),
 
-    ParishConfig(parish: 'LUWOOKO', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 182),
-    ParishConfig(parish: 'MAGOOLA', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 178),
-    ParishConfig(parish: 'NAMBALE', subcounty: 'NANKOMA', district: 'BUGIRI', limit: 185),
+    ParishConfig(
+      parish: 'LUWOOKO',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 182,
+    ),
+    ParishConfig(
+      parish: 'MAGOOLA',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 178,
+    ),
+    ParishConfig(
+      parish: 'NAMBALE',
+      subcounty: 'NANKOMA',
+      district: 'BUGIRI',
+      limit: 185,
+    ),
 
     // ── BUGIRI > BUGIRI TC ────────────────────────────────────────
-    ParishConfig(parish: 'BUGIRI A', subcounty: 'BUGIRI TC', district: 'BUGIRI', limit: 195),
-    ParishConfig(parish: 'BUGUBO', subcounty: 'BUGIRI TC', district: 'BUGIRI', limit: 205),
-    ParishConfig(parish: 'BUGUNGA', subcounty: 'BUGIRI TC', district: 'BUGIRI', limit: 199),
-    ParishConfig(parish: 'KISEITAKA', subcounty: 'BUGIRI TC', district: 'BUGIRI', limit: 190),
-    ParishConfig(parish: 'NAKAVULE', subcounty: 'BUGIRI TC', district: 'BUGIRI', limit: 180),
-    ParishConfig(parish: 'NAMUKONGE', subcounty: 'BUGIRI TC', district: 'BUGIRI', limit: 301),
-    ParishConfig(parish: 'NDIFAKULYA', subcounty: 'BUGIRI TC', district: 'BUGIRI', limit: 276),
+    ParishConfig(
+      parish: 'BUGIRI A',
+      subcounty: 'BUGIRI TC',
+      district: 'BUGIRI',
+      limit: 195,
+    ),
+    ParishConfig(
+      parish: 'BUGUBO',
+      subcounty: 'BUGIRI TC',
+      district: 'BUGIRI',
+      limit: 205,
+    ),
+    ParishConfig(
+      parish: 'BUGUNGA',
+      subcounty: 'BUGIRI TC',
+      district: 'BUGIRI',
+      limit: 199,
+    ),
+    ParishConfig(
+      parish: 'KISEITAKA',
+      subcounty: 'BUGIRI TC',
+      district: 'BUGIRI',
+      limit: 190,
+    ),
+    ParishConfig(
+      parish: 'NAKAVULE',
+      subcounty: 'BUGIRI TC',
+      district: 'BUGIRI',
+      limit: 180,
+    ),
+    ParishConfig(
+      parish: 'NAMUKONGE',
+      subcounty: 'BUGIRI TC',
+      district: 'BUGIRI',
+      limit: 301,
+    ),
+    ParishConfig(
+      parish: 'NDIFAKULYA',
+      subcounty: 'BUGIRI TC',
+      district: 'BUGIRI',
+      limit: 276,
+    ),
 
     // ── BUGIRI > KAPYANGA ─────────────────────────────────────────
-    ParishConfig(parish: 'BUTYABULE', subcounty: 'KAPYANGA', district: 'BUGIRI', limit: 280),
-    ParishConfig(parish: 'LWANIKA', subcounty: 'KAPYANGA', district: 'BUGIRI', limit: 182),
-    ParishConfig(parish: 'NKAIZA', subcounty: 'KAPYANGA', district: 'BUGIRI', limit: 100),
-    ParishConfig(parish: 'WANGOBO', subcounty: 'KAPYANGA', district: 'BUGIRI', limit: 273),
+    ParishConfig(
+      parish: 'BUTYABULE',
+      subcounty: 'KAPYANGA',
+      district: 'BUGIRI',
+      limit: 280,
+    ),
+    ParishConfig(
+      parish: 'LWANIKA',
+      subcounty: 'KAPYANGA',
+      district: 'BUGIRI',
+      limit: 182,
+    ),
+    ParishConfig(
+      parish: 'NKAIZA',
+      subcounty: 'KAPYANGA',
+      district: 'BUGIRI',
+      limit: 100,
+    ),
+    ParishConfig(
+      parish: 'WANGOBO',
+      subcounty: 'KAPYANGA',
+      district: 'BUGIRI',
+      limit: 273,
+    ),
   ];
 
   /// Only the 4 parishes where block randomisation runs automatically.

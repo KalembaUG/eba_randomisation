@@ -48,11 +48,11 @@ class ParishConfig {
 /// (i.e. [limit] × gender fraction), not the raw parish limit, so that
 /// each gender queue has an independently reachable threshold.
 extension ParishConfigTargets on ParishConfig {
-  /// Phase 1 Treatment target: ⌊limit × 2/3⌋.
-  static int phase1TreatmentTarget(int limit) => (limit * 2 / 3).floor();
+  /// Phase 1 Treatment target: ⌊limit × 0.8451⌋ (≈ 84.51 %).
+  static int phase1TreatmentTarget(int limit) => (limit * 0.8451).floor();
 
-  /// Phase 1 Control target: ⌊limit / 3⌋.
-  static int phase1ControlTarget(int limit) => (limit / 3).floor();
+  /// Phase 1 Control target: ⌊limit × 0.1549⌋ (≈ 15.49 %).
+  static int phase1ControlTarget(int limit) => (limit * 0.1549).floor();
 
   /// Phase 2 Waiting target: ⌊limit / 3⌋ (equals Phase 1 Control target).
   static int phase2WaitingTarget(int limit) => (limit / 3).floor();

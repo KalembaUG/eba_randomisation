@@ -40,10 +40,7 @@ class SqfliteRandomisationStore implements RandomisationStore {
     if (_db != null) return _db!;
     _db = await _factory.openDatabase(
       dbName,
-      options: OpenDatabaseOptions(
-        version: 1,
-        onCreate: _createSchema,
-      ),
+      options: OpenDatabaseOptions(version: 1, onCreate: _createSchema),
     );
     return _db!;
   }
@@ -195,20 +192,20 @@ class SqfliteRandomisationStore implements RandomisationStore {
   }
 
   /// Upsert a parish limit (simulates a server-synced limit).
-  Future<void> setParishLimit(String parish, String subcounty, int limit) async {
+  Future<void> setParishLimit(
+    String parish,
+    String subcounty,
+    int limit,
+  ) async {
     final db = await _database;
     final key = '${parish.toUpperCase()}_${subcounty.toUpperCase()}';
-    await db.insert(
-      'parish_limits',
-      {
-        'parish_key': key,
-        'parish': parish.toUpperCase(),
-        'subcounty': subcounty.toUpperCase(),
-        'limit_value': limit,
-        'updated_at': DateTime.now().toIso8601String(),
-      },
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    await db.insert('parish_limits', {
+      'parish_key': key,
+      'parish': parish.toUpperCase(),
+      'subcounty': subcounty.toUpperCase(),
+      'limit_value': limit,
+      'updated_at': DateTime.now().toIso8601String(),
+    }, conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   /// Close the underlying database (call in tearDown).

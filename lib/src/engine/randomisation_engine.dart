@@ -26,7 +26,7 @@ import 'eligibility_service.dart';
 ///
 /// | Phase   | Round | Assignments             | End condition                               |
 /// |---------|-------|-------------------------|---------------------------------------------|
-/// | Phase 1 | 3     | 2× Treatment + 1× Control | Treatment ≥ 67 % AND Control ≥ 33 %        |
+/// | Phase 1 | 71    | 60× Treatment + 11× Control | Treatment ≥ 84.51 % AND Control ≥ 15.49 % |
 /// | Phase 2 | 2     | 1× Waiting + 1× Control  | Waiting ≥ 33 % AND Phase-2 Control ≥ 33 %  |
 ///
 /// Phase determination reads live DB counts so the engine survives
@@ -44,9 +44,9 @@ class RandomisationEngine {
     required List<ParishConfig> parishes,
     required RandomisationStore store,
     Random? random,
-  })  : _parishes = parishes,
-        _store = store,
-        _random = random ?? Random();
+  }) : _parishes = parishes,
+       _store = store,
+       _random = random ?? Random();
 
   final List<ParishConfig> _parishes;
   final RandomisationStore _store;
@@ -176,7 +176,10 @@ class RandomisationEngine {
   }
 
   List<String> _generatePhase1Round() {
-    final round = ['Treatment', 'Treatment', 'Control'];
+    final round = [
+      ...List.filled(60, 'Treatment'),
+      ...List.filled(11, 'Control'),
+    ];
     round.shuffle(_random);
     return round;
   }

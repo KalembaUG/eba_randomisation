@@ -15,10 +15,7 @@ void main() {
 
   setUp(() async {
     sqfliteFfiInit();
-    store = SqfliteRandomisationStore(
-      databaseFactoryFfi,
-      dbName: ':memory:',
-    );
+    store = SqfliteRandomisationStore(databaseFactoryFfi, dbName: ':memory:');
   });
 
   tearDown(() async {
@@ -26,15 +23,20 @@ void main() {
   });
 
   group('SqfliteRandomisationStore', () {
-    test('getAssignmentCountsByParishGender returns zeros for empty DB', () async {
-      final counts = await store.getAssignmentCountsByParishGender(
-        'IGOMBE', 'IGOMBE', 'Female',
-      );
-      expect(counts['treatment'], 0);
-      expect(counts['control'], 0);
-      expect(counts['waiting'], 0);
-      expect(counts['phase2_control'], 0);
-    });
+    test(
+      'getAssignmentCountsByParishGender returns zeros for empty DB',
+      () async {
+        final counts = await store.getAssignmentCountsByParishGender(
+          'IGOMBE',
+          'IGOMBE',
+          'Female',
+        );
+        expect(counts['treatment'], 0);
+        expect(counts['control'], 0);
+        expect(counts['waiting'], 0);
+        expect(counts['phase2_control'], 0);
+      },
+    );
 
     test('getParishLimit returns null when not set', () async {
       final limit = await store.getParishLimit('IGOMBE', 'IGOMBE');
@@ -49,20 +51,31 @@ void main() {
 
     test('insertEnrollment and getAssignmentCountsByParishGender', () async {
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-        groupAssignment: 'Treatment', recruitmentPhase: 'Phase1',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Female',
+        groupAssignment: 'Treatment',
+        recruitmentPhase: 'Phase1',
       );
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-        groupAssignment: 'Treatment', recruitmentPhase: 'Phase1',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Female',
+        groupAssignment: 'Treatment',
+        recruitmentPhase: 'Phase1',
       );
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-        groupAssignment: 'Control', recruitmentPhase: 'Phase1',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Female',
+        groupAssignment: 'Control',
+        recruitmentPhase: 'Phase1',
       );
 
       final counts = await store.getAssignmentCountsByParishGender(
-        'IGOMBE', 'IGOMBE', 'Female',
+        'IGOMBE',
+        'IGOMBE',
+        'Female',
       );
       expect(counts['treatment'], 2);
       expect(counts['control'], 1);
@@ -70,19 +83,29 @@ void main() {
 
     test('counts are gender-specific', () async {
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-        groupAssignment: 'Treatment', recruitmentPhase: 'Phase1',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Female',
+        groupAssignment: 'Treatment',
+        recruitmentPhase: 'Phase1',
       );
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Male',
-        groupAssignment: 'Control', recruitmentPhase: 'Phase1',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Male',
+        groupAssignment: 'Control',
+        recruitmentPhase: 'Phase1',
       );
 
       final female = await store.getAssignmentCountsByParishGender(
-        'IGOMBE', 'IGOMBE', 'Female',
+        'IGOMBE',
+        'IGOMBE',
+        'Female',
       );
       final male = await store.getAssignmentCountsByParishGender(
-        'IGOMBE', 'IGOMBE', 'Male',
+        'IGOMBE',
+        'IGOMBE',
+        'Male',
       );
 
       expect(female['treatment'], 1);
@@ -93,16 +116,24 @@ void main() {
 
     test('phase2 control counted separately from phase1 control', () async {
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-        groupAssignment: 'Control', recruitmentPhase: 'Phase1',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Female',
+        groupAssignment: 'Control',
+        recruitmentPhase: 'Phase1',
       );
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-        groupAssignment: 'Control', recruitmentPhase: 'Phase2',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Female',
+        groupAssignment: 'Control',
+        recruitmentPhase: 'Phase2',
       );
 
       final counts = await store.getAssignmentCountsByParishGender(
-        'IGOMBE', 'IGOMBE', 'Female',
+        'IGOMBE',
+        'IGOMBE',
+        'Female',
       );
       // 'control' counts ALL Control entries (Phase1 + Phase2), while
       // 'phase2_control' counts only Phase2 Controls.
@@ -143,33 +174,51 @@ void main() {
       expect(c.recruitmentPhase, 'Phase1');
 
       await store.insertEnrollment(
-        parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-        groupAssignment: c.groupAssignment!, recruitmentPhase: 'Phase1',
+        parish: 'IGOMBE',
+        subcounty: 'IGOMBE',
+        gender: 'Female',
+        groupAssignment: c.groupAssignment!,
+        recruitmentPhase: 'Phase1',
       );
 
       final counts = await store.getAssignmentCountsByParishGender(
-        'IGOMBE', 'IGOMBE', 'Female',
+        'IGOMBE',
+        'IGOMBE',
+        'Female',
       );
       final total = (counts['treatment'] ?? 0) + (counts['control'] ?? 0);
       expect(total, 1);
     });
 
-    test('3 candidates produce one round with 2T+1C after persisting', () async {
-      final assignments = <String>[];
-      for (var i = 0; i < 3; i++) {
-        final c = TestParishes.eligibleFemale();
-        await engine.processEnrollment(c);
-        assignments.add(c.groupAssignment!);
-        await store.insertEnrollment(
-          parish: 'IGOMBE', subcounty: 'IGOMBE', gender: 'Female',
-          groupAssignment: c.groupAssignment!, recruitmentPhase: 'Phase1',
+    test(
+      '71 candidates produce one round with 60T+11C after persisting',
+      () async {
+        // Use a large limit so Phase 1 never completes within 71 iterations.
+        await store.setParishLimit('IGOMBE', 'IGOMBE', 10000);
+        engine = RandomisationEngine(
+          parishes: TestParishes.igombeOnly,
+          store: store,
+          random: Random(7),
         );
-      }
-      expect(assignments.where((a) => a == 'Treatment').length, 2);
-      expect(assignments.where((a) => a == 'Control').length, 1);
+        final assignments = <String>[];
+        for (var i = 0; i < 71; i++) {
+          final c = TestParishes.eligibleFemale();
+          await engine.processEnrollment(c);
+          assignments.add(c.groupAssignment!);
+          await store.insertEnrollment(
+            parish: 'IGOMBE',
+            subcounty: 'IGOMBE',
+            gender: 'Female',
+            groupAssignment: c.groupAssignment!,
+            recruitmentPhase: 'Phase1',
+          );
+        }
+        expect(assignments.where((a) => a == 'Treatment').length, 60);
+        expect(assignments.where((a) => a == 'Control').length, 11);
 
-      final rounds = await store.allRounds();
-      expect(rounds.length, 1);
-    });
+        final rounds = await store.allRounds();
+        expect(rounds.length, 1);
+      },
+    );
   });
 }

@@ -19,7 +19,7 @@ The engine runs entirely **offline** — no server call, no internet connection 
 
 | Phase | Round size | Possible assignments | Phase ends when |
 |-------|-----------|----------------------|----------------|
-| **Phase 1** | 3 | 2 × Treatment + 1 × Control (shuffled) | Treatment ≥ 67 % AND Control ≥ 33 % of gender limit |
+| **Phase 1** | 71 | 60 × Treatment + 11 × Control (shuffled) | Treatment ≥ 84.51 % AND Control ≥ 15.49 % of gender limit |
 | **Phase 2** | 2 | 1 × Waiting + 1 × Control (shuffled) | Waiting ≥ 33 % AND Phase-2 Control ≥ 33 % of gender limit |
 
 Phases are tracked **per parish per gender** independently, so the female queue and male queue never interfere.

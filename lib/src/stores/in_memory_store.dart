@@ -66,12 +66,14 @@ class InMemoryRandomisationStore implements RandomisationStore {
     required String phase,
     required String roundOrder,
   }) async {
-    _rounds.add(_Round(
-      parishGenderKey: parishGenderKey,
-      phase: phase,
-      roundOrder: roundOrder,
-      createdAt: DateTime.now(),
-    ));
+    _rounds.add(
+      _Round(
+        parishGenderKey: parishGenderKey,
+        phase: phase,
+        roundOrder: roundOrder,
+        createdAt: DateTime.now(),
+      ),
+    );
   }
 
   @override
@@ -91,14 +93,16 @@ class InMemoryRandomisationStore implements RandomisationStore {
     String? groupAssignment,
     String? recruitmentPhase,
   }) {
-    _records.add(_Record(
-      parish: parish,
-      subcounty: subcounty,
-      gender: gender,
-      eligibilityStatus: eligibilityStatus,
-      groupAssignment: groupAssignment,
-      recruitmentPhase: recruitmentPhase,
-    ));
+    _records.add(
+      _Record(
+        parish: parish,
+        subcounty: subcounty,
+        gender: gender,
+        eligibilityStatus: eligibilityStatus,
+        groupAssignment: groupAssignment,
+        recruitmentPhase: recruitmentPhase,
+      ),
+    );
   }
 
   /// Override the synced parish limit (simulates a server-sent limit).

@@ -54,42 +54,45 @@ abstract final class TestParishes {
   static const List<ParishConfig> igombeOnly = [igombe];
 
   /// All four auto-randomisation parishes.
-  static const List<ParishConfig> autoOnly = [igombe, kikunyu, isegeroNabukalu, nsono];
+  static const List<ParishConfig> autoOnly = [
+    igombe,
+    kikunyu,
+    isegeroNabukalu,
+    nsono,
+  ];
 
   /// Helper: create an eligible [EnrollmentCandidate] for [igombe].
   static EnrollmentCandidate eligibleFemale({
     String parish = 'IGOMBE',
     String subcounty = 'IGOMBE',
     String district = 'BUGWERI',
-  }) =>
-      EnrollmentCandidate(
-        age: 22,
-        income: 80000,
-        educationLevel: 'S2',
-        trainingInterest: true,
-        previousParticipation: 'No',
-        ownsBusiness: 'No',
-        gender: 'Female',
-        parish: parish,
-        subcounty: subcounty,
-        district: district,
-      );
+  }) => EnrollmentCandidate(
+    age: 22,
+    income: 80000,
+    educationLevel: 'S2',
+    trainingInterest: true,
+    previousParticipation: 'No',
+    ownsBusiness: 'No',
+    gender: 'Female',
+    parish: parish,
+    subcounty: subcounty,
+    district: district,
+  );
 
   static EnrollmentCandidate eligibleMale({
     String parish = 'IGOMBE',
     String subcounty = 'IGOMBE',
     String district = 'BUGWERI',
-  }) =>
-      EnrollmentCandidate(
-        age: 25,
-        income: 100000,
-        educationLevel: 'P7',
-        trainingInterest: true,
-        previousParticipation: 'No',
-        ownsBusiness: 'No',
-        gender: 'Male',
-        parish: parish,
-        subcounty: subcounty,
-        district: district,
-      );
+  }) => EnrollmentCandidate(
+    age: 25,
+    income: 100000,
+    educationLevel: 'P7',
+    trainingInterest: true,
+    previousParticipation: 'No',
+    ownsBusiness: 'No',
+    gender: 'Male',
+    parish: parish,
+    subcounty: subcounty,
+    district: district,
+  );
 }
