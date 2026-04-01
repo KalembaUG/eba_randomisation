@@ -4,7 +4,7 @@ description: >
   Supports injectable parish configs, injectable RandomisationStore
   (in-memory for unit tests; sqflite_common for SQLite — same SQL as
   the mobile app on desktop/CI via sqflite_common_ffi).
-version: 0.1.0
+version: 0.2.0
 
 publish_to: none
 
