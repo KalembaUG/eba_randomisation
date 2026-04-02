@@ -125,20 +125,5 @@ void main() {
         );
       });
     });
-
-    group('owns business criterion', () {
-      test('"Yes" → Ineligible', () {
-        expect(
-          EligibilityService.checkEligibility(candidate(ownsBusiness: 'Yes')),
-          'Ineligible',
-        );
-      });
-      test('"No" → Eligible', () {
-        expect(
-          EligibilityService.checkEligibility(candidate(ownsBusiness: 'No')),
-          'Eligible',
-        );
-      });
-    });
   });
 }

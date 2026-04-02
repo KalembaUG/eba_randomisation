@@ -2,13 +2,12 @@ import '../models/enrollment_candidate.dart';
 
 /// Pure eligibility screening — no database required.
 ///
-/// Implements the 6 criteria from TTK-498 / TTK-499:
+/// Implements the 5 criteria from TTK-498 / TTK-499:
 /// 1. Age 18–30
 /// 2. Income ≤ 300,000 UGX in the last two weeks
 /// 3. Education level P5–S3
 /// 4. Interested in the training programme
 /// 5. No previous Educate! participation
-/// 6. Not currently running a business
 class EligibilityService {
   EligibilityService._();
 
@@ -21,7 +20,6 @@ class EligibilityService {
     final education = candidate.educationLevel;
     final interested = candidate.trainingInterest;
     final previousParticipant = candidate.previousParticipation;
-    final ownsBusiness = candidate.ownsBusiness;
 
     if (age == null || age < 18 || age > 30) return 'Ineligible';
     if (income == null || income > 300000) return 'Ineligible';
@@ -30,7 +28,6 @@ class EligibilityService {
     }
     if (interested != true) return 'Ineligible';
     if (previousParticipant == 'Yes - Educate!') return 'Ineligible';
-    if (ownsBusiness == 'Yes') return 'Ineligible';
 
     return 'Eligible';
   }
