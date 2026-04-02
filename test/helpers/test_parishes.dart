@@ -25,11 +25,11 @@ abstract final class TestParishes {
     tamPercent: 1.62,
   );
 
-  static const ParishConfig isegeroNabukalu = ParishConfig(
+  static const ParishConfig isegeroNankoma = ParishConfig(
     parish: 'ISEGERO',
-    subcounty: 'NABUKALU',
+    subcounty: 'NANKOMA',
     district: 'BUGIRI',
-    limit: 192,
+    limit: 196,
     isAutoRandomisation: true,
     tamPercent: 2.92,
   );
@@ -57,7 +57,7 @@ abstract final class TestParishes {
   static const List<ParishConfig> autoOnly = [
     igombe,
     kikunyu,
-    isegeroNabukalu,
+    isegeroNankoma,
     nsono,
   ];
 

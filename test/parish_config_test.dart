@@ -47,13 +47,13 @@ void main() {
   group('ParishConfigList extensions', () {
     const parishes = [
       TestParishes.igombe,
-      TestParishes.isegeroNabukalu,
       ParishConfig(
         parish: 'ISEGERO',
-        subcounty: 'NANKOMA',
+        subcounty: 'NABUKALU',
         district: 'BUGIRI',
-        limit: 196,
+        limit: 192,
       ),
+      TestParishes.isegeroNankoma,
       TestParishes.bulunguli,
     ];
 
@@ -66,8 +66,8 @@ void main() {
     test('findConfig distinguishes ISEGERO/NABUKALU from ISEGERO/NANKOMA', () {
       final nabukalu = parishes.findConfig('ISEGERO', 'NABUKALU');
       final nankoma = parishes.findConfig('ISEGERO', 'NANKOMA');
-      expect(nabukalu?.isAutoRandomisation, isTrue);
-      expect(nankoma?.isAutoRandomisation, isFalse);
+      expect(nabukalu?.isAutoRandomisation, isFalse);
+      expect(nankoma?.isAutoRandomisation, isTrue);
       expect(nabukalu?.limit, 192);
       expect(nankoma?.limit, 196);
     });
@@ -99,12 +99,12 @@ void main() {
       expect(EbaParishes.autoRandomisation.length, 4);
     });
 
-    test('auto parishes are IGOMBE, KIKUNYU, ISEGERO/NABUKALU, NSONO', () {
+    test('auto parishes are IGOMBE, KIKUNYU, ISEGERO/NANKOMA, NSONO', () {
       final autoKeys = EbaParishes.autoRandomisation.map((c) => c.key).toSet();
       expect(autoKeys, {
         'BUGWERI_IGOMBE_IGOMBE',
         'BUGWERI_IGOMBE_KIKUNYU',
-        'BUGIRI_NABUKALU_ISEGERO',
+        'BUGIRI_NANKOMA_ISEGERO',
         'BUGIRI_NANKOMA_NSONO',
       });
     });

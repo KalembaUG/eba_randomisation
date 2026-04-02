@@ -33,14 +33,12 @@ abstract final class EbaParishes {
       tamPercent: 1.62,
     ),
 
-    // ── BUGIRI > NABUKALU — auto-randomisation ────────────────────
+    // ── BUGIRI > NABUKALU ────────────────────────────────────────
     ParishConfig(
       parish: 'ISEGERO',
       subcounty: 'NABUKALU',
       district: 'BUGIRI',
       limit: 192,
-      isAutoRandomisation: true,
-      tamPercent: 2.92,
     ),
 
     // ── BUGIRI > NANKOMA — auto-randomisation ─────────────────────
@@ -165,11 +163,14 @@ abstract final class EbaParishes {
 
     // ISEGERO also exists in NANKOMA (different from NABUKALU ISEGERO).
     // Use parish + subcounty together to disambiguate.
+    // ── auto-randomisation ────────────────────────────────────────
     ParishConfig(
       parish: 'ISEGERO',
       subcounty: 'NANKOMA',
       district: 'BUGIRI',
       limit: 196,
+      isAutoRandomisation: true,
+      tamPercent: 2.92,
     ),
 
     ParishConfig(

@@ -83,10 +83,16 @@ void main() {
             .length;
         final controlCount = assignments.where((a) => a == 'Control').length;
         // 71 assignments = 1 complete block of 71 → exactly 60T + 11C
-        expect(treatmentCount, 60,
-            reason: 'Expected exactly 60 Treatment in one complete block');
-        expect(controlCount, 11,
-            reason: 'Expected exactly 11 Control in one complete block');
+        expect(
+          treatmentCount,
+          60,
+          reason: 'Expected exactly 60 Treatment in one complete block',
+        );
+        expect(
+          controlCount,
+          11,
+          reason: 'Expected exactly 11 Control in one complete block',
+        );
       },
     );
 
