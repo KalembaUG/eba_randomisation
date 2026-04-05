@@ -4,7 +4,7 @@ import '../models/enrollment_candidate.dart';
 ///
 /// Implements the 5 criteria from TTK-498 / TTK-499:
 /// 1. Age 18–30
-/// 2. Income ≤ 300,000 UGX in the last two weeks
+/// 2. Income ≤ 30,000 UGX in the last two weeks
 /// 3. Education level P5–S3
 /// 4. Interested in the training programme
 /// 5. No previous Educate! participation
@@ -22,7 +22,7 @@ class EligibilityService {
     final previousParticipant = candidate.previousParticipation;
 
     if (age == null || age < 18 || age > 30) return 'Ineligible';
-    if (income == null || income > 300000) return 'Ineligible';
+    if (income == null || income > 30000) return 'Ineligible';
     if (education == null || !_eligibleEducation.contains(education)) {
       return 'Ineligible';
     }

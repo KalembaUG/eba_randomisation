@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   EnrollmentCandidate candidate({
     int age = 22,
-    int income = 80000,
+    int income = 10000,
     String educationLevel = 'S2',
     bool trainingInterest = true,
     String previousParticipation = 'No',
@@ -50,16 +50,16 @@ void main() {
       });
     });
 
-    group('income criterion (≤ 300 000)', () {
-      test('income 300 000 → Eligible', () {
+    group('income criterion (≤ 30 000)', () {
+      test('income 30 000 → Eligible', () {
         expect(
-          EligibilityService.checkEligibility(candidate(income: 300000)),
+          EligibilityService.checkEligibility(candidate(income: 30000)),
           'Eligible',
         );
       });
-      test('income 300 001 → Ineligible', () {
+      test('income 30 001 → Ineligible', () {
         expect(
-          EligibilityService.checkEligibility(candidate(income: 300001)),
+          EligibilityService.checkEligibility(candidate(income: 30001)),
           'Ineligible',
         );
       });

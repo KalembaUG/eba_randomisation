@@ -8,7 +8,7 @@ Pure-Dart block-randomisation engine for the **EBA youth recruitment study** (TT
 
 When a field agent enrols a young person, this engine:
 
-1. **Screens eligibility** — checks 6 criteria (age, income, education, interest, prior participation, business ownership).
+1. **Screens eligibility** — checks 5 criteria (age, income, education, interest, prior Educate! participation).
 2. **Assigns a study group** — for the 4 auto-randomisation parishes, eligible youth are allocated to Treatment, Control, or Waiting using a **block randomisation** design so the ratio stays balanced even as enrolments trickle in over weeks.
 
 The engine runs entirely **offline** — no server call, no internet connection needed.
@@ -184,16 +184,15 @@ final engine = RandomisationEngine(
 
 ## Eligibility criteria
 
-A candidate is **Eligible** only if **all six** conditions are met:
+A candidate is **Eligible** only if **all five** conditions are met:
 
 | # | Field | Rule |
 |---|-------|------|
 | 1 | `age` | 18 – 30 (inclusive) |
-| 2 | `income` | ≤ 300,000 UGX (gross earnings last 2 weeks) |
+| 2 | `income` | ≤ 30,000 UGX (gross earnings last 2 weeks) |
 | 3 | `educationLevel` | P5, P6, P7, S1, S2, or S3 |
 | 4 | `trainingInterest` | must be `true` |
 | 5 | `previousParticipation` | must **not** be `'Yes - Educate!'` |
-| 6 | `ownsBusiness` | must **not** be `'Yes'` |
 
 ---
 
