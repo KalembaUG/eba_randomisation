@@ -68,7 +68,7 @@ abstract final class TestParishes {
     String district = 'BUGWERI',
   }) => EnrollmentCandidate(
     age: 22,
-    income: 80000,
+    income: 20000,
     educationLevel: 'S2',
     trainingInterest: true,
     previousParticipation: 'No',
@@ -85,7 +85,7 @@ abstract final class TestParishes {
     String district = 'BUGWERI',
   }) => EnrollmentCandidate(
     age: 25,
-    income: 100000,
+    income: 20000,
     educationLevel: 'P7',
     trainingInterest: true,
     previousParticipation: 'No',
